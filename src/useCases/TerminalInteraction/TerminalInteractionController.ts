@@ -7,6 +7,11 @@ export class TerminalInteractionController {
   async handle () {
     try {
       const answers = await this.terminalInteractionUseCase.execute()
+
+      if (!answers) {
+        throw new Error("User didn't input any info")
+      }
+
       return answers
     } catch (error) {
       console.error(`Status: ${error?.response.status}`)

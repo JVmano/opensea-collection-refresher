@@ -7,6 +7,11 @@ export class GetCollectionStatsController {
 
   async handle (data: IGetCollectionStatsDTO) {
     const { slug, address, network, api } = data
+
+    if (!slug || !address || !network || !api) {
+      throw new Error('Missing mandatory data')
+    }
+
     try {
       const response = await this.getCollectionStatsUseCase.execute({
         slug,

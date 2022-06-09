@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts",
     "build": "rm -rf dist && tsc --build",
-    "build:execute": "node dist/index.js"
+    "build:execute": "node dist/index.js",
+    "start": "yarn build && yarn build:execute"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

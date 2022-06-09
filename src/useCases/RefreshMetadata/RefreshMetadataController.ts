@@ -7,6 +7,11 @@ export class RefreshMetadataController {
 
   async handle (data: IRefreshMetadataDTO, supply: number) {
     const { slug, address, network, api } = data
+
+    if (!slug || !address || !network || !api) {
+      throw new Error('Missing mandatory data')
+    }
+
     try {
       const response = await this.refreshMetadataUseCase.execute({
         slug,
