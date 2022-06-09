@@ -8,8 +8,12 @@ export class RefreshMetadataController {
   async handle (data: IRefreshMetadataDTO, supply: number) {
     const { slug, address, network, api } = data
 
-    if (!slug || !address || !network || !api) {
+    if (!slug || !address || !network) {
       throw new Error('Missing mandatory data')
+    }
+
+    if (network === 'Mainnet' && !api) {
+      throw new Error('Missing API Key for mainnet requests')
     }
 
     try {

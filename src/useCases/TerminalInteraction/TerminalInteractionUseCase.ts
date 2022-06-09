@@ -42,7 +42,7 @@ export class TerminalInteractionUseCase {
       return inquirer.prompt(questions)
     } catch (error) {
       console.error(error)
-      return { success: false }
+      process.exit(1)
     }
   }
 }

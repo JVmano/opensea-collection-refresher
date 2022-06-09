@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts",
+    "lint": "eslint src/**/*.ts .eslintrc.js",
     "build": "rm -rf dist && tsc --build",
     "build:execute": "node dist/index.js",
     "start": "yarn build && yarn build:execute"
