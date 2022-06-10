@@ -1,4 +1,5 @@
 import { describe, it, expect } from '@jest/globals'
+import { sleep } from '../../util/sleep'
 import { refreshMetadataController } from '../RefreshMetadata'
 
 describe('refreshMetadataController', () => {
@@ -37,6 +38,7 @@ describe('refreshMetadataController', () => {
   })
 
   it('should check refreshMetadataController if has a valid response', async () => {
+    await sleep(1000)
     const response = await refreshMetadataController.handle({
       slug: 'weird-guys-v2',
       address: '0x02e1ad7788c4539b89bc8d46ba66e58363e3fb32',
