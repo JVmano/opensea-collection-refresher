@@ -9,11 +9,13 @@ export class GetCollectionStatsController {
     const { slug, address, network, api } = data
 
     if (!slug || !address || !network) {
-      throw new Error('Missing mandatory data')
+      const dataErr = 'Missing mandatory data'
+      throw dataErr
     }
 
     if (network === 'Mainnet' && !api) {
-      throw new Error('Missing API Key for mainnet requests')
+      const apiErr = 'Missing API Key for mainnet requests'
+      throw apiErr
     }
 
     try {
